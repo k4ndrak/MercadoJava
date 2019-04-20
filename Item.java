@@ -3,8 +3,17 @@ public class Item {
     private int codProduto;
     private int qtdProduto;
 
-    private boolean verificaDisponivel(int qtd, int codigoProduto) {
-        //if ()
+    public Item(int codProduto, int qtdProduto) {
+        this.codProduto = codProduto;
+        this.qtdProduto = qtdProduto;
+    }
+
+    public int getCodProduto() {
+        return this.codProduto;
+    }
+
+    public int getQtdProduto() {
+        return this.qtdProduto;
     }
 
 }

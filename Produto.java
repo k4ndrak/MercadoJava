@@ -20,6 +20,14 @@ public class Produto {
         return this.codigoProduto;
     }
 
+    public int getQtdEstoque() {
+        return this.qtdEstoque;
+    }
+
+    public double getPrecoProduto() {
+        return this.precoProduto;
+    }
+
     public boolean adicionaEstoque(int qtd) {
         if (qtd > 0) {
             this.qtdEstoque += qtd;
@@ -30,16 +38,8 @@ public class Produto {
         }
     }
 
-    public int removeEstoque(int qtd) {
-        if (qtd <= 0) {
-            System.out.println("Quantidade invalida, operacao cancelada");
-            return 2;
-        } else if (qtd > qtdEstoque) {
-            System.out.println("Quantidade maior do que a disponivel em estoque!");
-            return 1;
-        } else {
-            return  0;
-        }
+    public void removeEstoque(int qtd) {
+        this.qtdEstoque -= qtd;
     }
 
     public boolean alteraPreco(double novoPreco) {
@@ -52,6 +52,11 @@ public class Produto {
     }
 
     public String mostra() {
+        return "\nNome:\t\t" + this.nomeProduto + "\nPreco:\t\tR$ " + df.format(this.precoProduto);
+    }
+
+    @Override
+    public String toString() {
         return "\nCod:\t\t" + this.codigoProduto + "\nNome:\t\t" + this.nomeProduto + "\nPreco:\t\tR$ " + df.format(this.precoProduto) + "\nEstoque:\t" + qtdEstoque;
     }
 }
